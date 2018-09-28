@@ -1,6 +1,8 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
+use App\Transformers\UserTransformer;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+}); */
+
+Route::get('/users', function (Request $request) {
+    /* $user = fractal(User::all(), new UserTransformer())->toArray(); */
+    $user = fractal()
+        ->collection(User::get())
+        ->transformWith(new UserTransformer())
+        ->toArray();
+
+    return response()->json($user);
 });
+
+Route::post('users', 'AuthController@register');
