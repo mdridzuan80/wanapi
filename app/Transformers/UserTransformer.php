@@ -17,7 +17,6 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $user)
     {
         return [
-            "id" => $user->id,
             "no_matrik" => $user->no_matrik,
             "name" => $user->name,
             "email" => $user->email,

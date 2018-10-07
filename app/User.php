@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'no_matrik', 'password', 'api_token'
+        'name', 'email', 'no_matrik', 'password', 'api_token',
     ];
 
     /**
@@ -30,6 +30,7 @@ class User extends Authenticatable
 
     protected $primaryKey = 'no_matrik';
     protected $keyType = 'string';
+    public $incrementing = false;
 
     public function pelajar()
     {

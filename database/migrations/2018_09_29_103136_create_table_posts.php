@@ -20,7 +20,7 @@ class CreateTablePosts extends Migration
             $table->timestamps();
 
             // pastikan foreign key unsigned di *1
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 
