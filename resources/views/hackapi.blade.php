@@ -10,20 +10,21 @@
 
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
-	<title>App Introduction Template | CodyHouse</title>
+	<title>Hackapi Apps | Diamond Head</title>
 </head>
 <body>
 	<header class="cd-header">
 		<div id="cd-logo"><img src="img/cd-logo.svg" alt="Logo"></div>
-		<div id="cd-action"><a href="http://codyhouse.co/?p=384" class="btn">Download</a></div>
+		{{-- <div id="cd-action"><a href="http://codyhouse.co/?p=384" class="btn">Download</a></div> --}}
 	</header>
 
 	<main class="cd-main-content">
 		<div class="cd-product-intro">
+            <h1>Diamond Head</h1>
 			<h1>App Introduction Template</h1>
 			<p>Click on the Start button to see the animated slideshow.<br>Videos will play on large devices only, on mobile you just see images.</p>
 			<div class="cd-triggers">
-				<a href="http://codyhouse.co/?p=384" class="btn">Download</a>
+				{{-- <a href="http://codyhouse.co/?p=384" class="btn">Download</a> --}}
 				<a href="#cd-product-tour" class="btn salmon" data-type="cd-tour">Start</a>
 			</div>
 		</div> <!-- cd-product-intro -->
