@@ -57,7 +57,7 @@ class ApiAuthController extends Controller
 
     public function login(Request $request)
     {
-        $user = User::where('email', $request->username)->first();
+        $user = User::where('no_matrik', $request->username)->first();
 
         if($user->exists() && Hash::check($request->password, $user->password))
         {

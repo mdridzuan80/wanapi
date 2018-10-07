@@ -7,7 +7,7 @@ use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['posts'];
+    // protected $availableIncludes = ['posts'];
 
     /**
      * A Fractal transformer.
@@ -18,15 +18,16 @@ class UserTransformer extends TransformerAbstract
     {
         return [
             "id" => $user->id,
+            "no_matrik" => $user->no_matrik,
             "name" => $user->name,
             "email" => $user->email,
         ];
     }
 
-    public function includePosts(User $user)
+    /* public function includePosts(User $user)
     {
         $posts = $user->posts()->latestPost()->get();
 
         return $this->collection($posts, new PostTransformer);
-    }
+    } */
 }

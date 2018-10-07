@@ -19,10 +19,10 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function profile(User $user)
+    public function profile(User $no_matrik)
     {
         return fractal()
-            ->item($user)
+            ->item($no_matrik)
             ->transformWith(new UserTransformer)
             ->includePosts()
             ->toArray();

@@ -18,6 +18,8 @@
 Route::post('auth/login', 'ApiAuthController@login');
 Route::post('auth/register', 'ApiAuthController@register');
 
-Route::post('auth/profile', 'AuthController@profile')->middleware('auth:api');
-Route::get('users/{user}', 'UserController@profile')->middleware('auth:api');
-Route::post('posts', 'PostController@store')->middleware('auth:api');
+Route::middleware('auth:api')->group(function () {
+    Route::get('users/{no_matrik}', 'UserController@profile');
+    Route::post('posts', 'PostController@store');
+});
+

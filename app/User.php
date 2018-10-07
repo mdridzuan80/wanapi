@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'name', 'email', 'no_matrik', 'password', 'api_token'
     ];
 
     /**
@@ -28,8 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts()
+    protected $primaryKey = 'no_matrik';
+    protected $keyType = 'string';
+
+    public function pelajar()
     {
-        return $this->hasMany(Post::Class);
-    }
+        return $this->hasOne(Pelajar::class);
+    }    
 }

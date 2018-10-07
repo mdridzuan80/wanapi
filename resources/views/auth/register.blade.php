@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="no_matrik" class="col-md-4 col-form-label text-md-right">{{ __('No Matrik') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="no_matrik" type="text" class="form-control{{ $errors->has('np_matrik') ? ' is-invalid' : '' }}" name="no_matrik" value="{{ old('no_matrik') }}" required>
+
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('no_matrik') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
