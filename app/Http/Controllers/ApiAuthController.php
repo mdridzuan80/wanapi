@@ -59,6 +59,11 @@ class ApiAuthController extends Controller
 
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required|min:6',
+        ]);
+
         $user = User::where('no_matrik', $request->username)->first();
 
         if($user && Hash::check($request->password, $user->password))
