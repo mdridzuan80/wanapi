@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTableUsersAddToken extends Migration
+class CreateTableAgama extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class UpdateTableUsersAddToken extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table){
-            $table->string('api_token')->nullable()->after('email');
+        Schema::create('agama', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('kod')->unique();
+            $table->string('nama');
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class UpdateTableUsersAddToken extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('api_token');
-        });
+        Schema::dropIfExists('agama');
     }
 }

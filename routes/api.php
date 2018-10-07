@@ -1,9 +1,5 @@
 <?php
 
-use App\User;
-use Illuminate\Http\Request;
-use App\Transformers\UserTransformer;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,14 +15,9 @@ use App\Transformers\UserTransformer;
     return $request->user();
 }); */
 
-Route::get('/users', function (Request $request) {
-    /* $user = fractal(User::all(), new UserTransformer())->toArray(); */
-    $user = fractal()
-        ->collection(User::get())
-        ->transformWith(new UserTransformer())
-        ->toArray();
+Route::post('auth/register', 'AuthController@register');
+Route::post('auth/profile', 'AuthController@profile')->middleware('auth:api');
 
-    return response()->json($user);
-});
+Route::get('users/{user}', 'UserController@profile')->middleware('auth:api');
 
-Route::post('users', 'AuthController@register');
+Route::post('posts', 'PostController@store')->middleware('auth:api');
