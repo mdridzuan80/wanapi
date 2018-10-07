@@ -20,7 +20,7 @@
 
 	<main class="cd-main-content">
 		<div class="cd-product-intro">
-            <h1>Diamond Head</h1>
+            <h1>Hack! Diamond Head</h1>
 			<h1>App Introduction Template</h1>
 			<p>Click on the Start button to see the animated slideshow.<br>Videos will play on large devices only, on mobile you just see images.</p>
 			<div class="cd-triggers">
