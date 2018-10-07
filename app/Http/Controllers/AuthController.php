@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Transformers\UserTransformer;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -52,5 +53,21 @@ class AuthController extends Controller
                 'token' => $user->api_token,
             ])
             ->toArray();
+    }
+
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->username)->first();
+
+        if($user->exists() && Hash::check($request->password, $user->password))
+        {
+            return fractal()
+                ->item($user)
+                ->transformWith(new UserTransformer)
+                ->addMeta(['token' => $user->api_token,])
+                ->toArray();
+        }
+
+        return abort(403, 'Unauthorized');
     }
 }
