@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Transformers\UserTransformer;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class ApiAuthController extends Controller
 {
     public function register(Request $request)
     {
