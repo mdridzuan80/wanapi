@@ -61,7 +61,7 @@ class ApiAuthController extends Controller
     {
         $user = User::where('no_matrik', $request->username)->first();
 
-        if($user->exists() && Hash::check($request->password, $user->password))
+        if($user->findOrFail() && Hash::check($request->password, $user->password))
         {
             return fractal()
                 ->item($user)
