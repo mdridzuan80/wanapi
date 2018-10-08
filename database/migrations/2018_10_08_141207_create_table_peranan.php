@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnNoMatrik extends Migration
+class CreateTablePeranan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddColumnNoMatrik extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('no_matrik')->after('email')->unique();
+        Schema::create('peranan', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
         });
     }
 
@@ -25,9 +26,6 @@ class AddColumnNoMatrik extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropIndex('users_no_matrik_unique');
-            $table->dropColumn('no_matrik');
-        });
+        Schema::dropIfExists('peranan');
     }
 }

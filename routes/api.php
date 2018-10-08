@@ -20,6 +20,7 @@ Route::post('auth/register', 'ApiAuthController@register');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('users', 'UserController@profile');
+    Route::get('pelajar', 'PelajarController@index');
     //Route::post('posts', 'PostController@store');
 });
 

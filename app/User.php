@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'no_matrik', 'password', 'api_token',
+        'nokp', 'password', 'name', 'email', 'api_token', 'peranan_kod',
     ];
 
     /**
@@ -28,12 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $primaryKey = 'no_matrik';
+    protected $primaryKey = 'nokp';
     protected $keyType = 'string';
     public $incrementing = false;
 
     public function pelajar()
     {
-        return $this->hasOne(Pelajar::class);
+        return $this->hasOne(Pelajar::class, 'nokp');
     }    
 }

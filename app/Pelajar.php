@@ -7,11 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class Pelajar extends Model
 {
     protected $table = 'pelajar';
-    protected $primaryKey = 'no_matrik';
+    protected $primaryKey = 'nokp';
     protected $keyType = 'string';
+    public $incrementing = false;
+
+    protected $fillable = [
+        'no_matrik',
+        'nokp', 
+        'nama',
+        'jantina_kod',
+        'tkh_lahir',
+        'sesi_kemasukan',
+        'alamat',
+        'poskod',
+        'bandar',
+        'negeri_kod'
+    ];
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'nokp');
     }
 }
