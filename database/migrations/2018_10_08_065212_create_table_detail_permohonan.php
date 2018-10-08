@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableKursusPermohonan extends Migration
+class CreateTableDetailPermohonan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateTableKursusPermohonan extends Migration
      */
     public function up()
     {
-        Schema::create('kursus_permohonan', function (Blueprint $table) {
+        Schema::create('detail_permohonan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('permohonan_id')->unsigned();
-            $table->string('kursus_kod');
+            $table->integer('institusi_kursus_id');
+            $table->boolean('status_pilihan')->default(false);
             $table->softDeletes();
             $table->timestamps();
 
             // indexing
             $table->index('permohonan_id');
-            $table->index('kursus_kod');
-            $table->unique(['permohonan_id', 'kursus_kod']);
+            $table->index('institusi_kursus_id');
+            $table->unique(['permohonan_id', 'institusi_kursus_id']);
         });
     }
 
@@ -34,6 +35,6 @@ class CreateTableKursusPermohonan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kursus_permohonan');
+        Schema::dropIfExists('detail_permohonan');
     }
 }
