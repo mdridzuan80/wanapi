@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'nokp' => '950416145457',
-            'password' => '123456',
+            'password' => bcrypt('123456'),
             'name' => 'ARIF ANUAR BIN ROSLI',
             'email' => 'arif@gmail.com' ,
             'api_token' => bcrypt('950416145457123456') ,

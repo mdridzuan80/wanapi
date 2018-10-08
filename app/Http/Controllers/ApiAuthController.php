@@ -64,7 +64,7 @@ class ApiAuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $user = User::where('no_matrik', $request->username)->first();
+        $user = User::find($request->username)->first();
 
         if($user && Hash::check($request->password, $user->password))
         {
