@@ -11,6 +11,10 @@ class Pelajar extends Model
     protected $keyType = 'string';
     public $incrementing = false;
 
+    protected $dates = [
+        'tkh_lahir',
+    ];
+
     protected $fillable = [
         'no_matrik',
         'nokp', 
@@ -24,8 +28,10 @@ class Pelajar extends Model
         'negeri_kod'
     ];
 
+    // relationship
     public function user()
     {
         return $this->hasOne(User::class, 'nokp');
     }
+    //
 }

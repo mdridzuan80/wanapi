@@ -20,12 +20,11 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function profile()
+    public function profile($nokp)
     {
         return fractal()
             ->item(Auth::user())
             ->transformWith(new UserTransformer)
-            ->includePosts()
             ->toArray();
     }
 }

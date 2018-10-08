@@ -19,8 +19,8 @@ Route::post('auth/login', 'ApiAuthController@login');
 Route::post('auth/register', 'ApiAuthController@register');
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('users', 'UserController@profile');
-    Route::get('pelajar', 'PelajarController@index');
+    Route::get('user/{nokp}', 'UserController@profile');
+    Route::get('pelajar/{nokp}', 'PelajarController@index');
     //Route::post('posts', 'PostController@store');
 });
 

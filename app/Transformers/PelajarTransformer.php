@@ -15,8 +15,16 @@ class PelajarTransformer extends TransformerAbstract
     public function transform(Pelajar $pelajar)
     {
         return [
-            'no_matrik' => $pelajar->no_matrik,
+            'nokp' => $pelajar->nokp,
             'nama' => $pelajar->nama,
+            'no_matrik' => $pelajar->no_matrik,
+            'jantina_kod' => $pelajar->jantina_kod,
+            'tkh_lahir' => $pelajar->tkh_lahir->format('Y-m-d'),
+            'sesi_kemasukan' => $pelajar->sesi_kemasukan,
+            'alamat' => $pelajar->alamat,
+            'poskod' => $pelajar->poskod,
+            'bandar' => $pelajar->bandar,
+            'negeri_kod' => $pelajar->negeri_kod,
         ];
     }
 }

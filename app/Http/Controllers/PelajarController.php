@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Transformers\PelajarTransformer;
+use App\Pelajar;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Transformers\PelajarTransformer;
 
 class PelajarController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Pelajar $nokp)
     {
-        $pelajar = Auth::user()->pelajar;
-
         return fractal()
-            ->item($pelajar)
+            ->item($nokp)
             ->transformWith(new PelajarTransformer)
             ->toArray();
     }
