@@ -39,6 +39,7 @@ class ApiAuthController extends Controller
             ->transformWith(new UserTransformer)
             ->addMeta([
                 'token' => $user->api_token,
+                'saveStatus' => 'pass',
             ])
             ->respond(201);
     }
@@ -53,6 +54,7 @@ class ApiAuthController extends Controller
             ->includePosts()
             ->addMeta([
                 'token' => $user->api_token,
+                'saveStatus' => 'pass',
             ])
             ->toArray();
     }
