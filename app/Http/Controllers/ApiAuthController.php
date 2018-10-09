@@ -73,7 +73,7 @@ class ApiAuthController extends Controller
             return fractal()
                 ->item($user)
                 ->transformWith(new UserTransformer)
-                ->addMeta(['token' => $user->api_token,])
+                ->addMeta(['token' => $user->api_token, 'saveStatus' => 'pass'])
                 ->toArray();
         }
 
