@@ -19,6 +19,8 @@ Route::post('auth/login', 'ApiAuthController@login');
 Route::post('auth/register', 'ApiAuthController@register');
 Route::get('permohonan/{nokp}', 'PermohonanController@semak');
 Route::get('jobmalaysia', 'PermohonanController@jobmalaysia');
+Route::get('laluankerjaya', 'PermohonanController@jobmalaysia');
+Route::get('senaraiilp', 'PermohonanController@jobmalaysia');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user/{nokp}', 'UserController@profile');
