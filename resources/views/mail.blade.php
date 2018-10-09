@@ -1,2 +1,2 @@
-<h1>Hi, {{ $name }}</h1>
-l<p>Sending Mail from Laravel.</p>
+<h1>Tahniah, {{ $name }}</h1>
+<p>Anda telah berdaftar untuk ujian psikomatrik akan dihantar kemudian.</p>

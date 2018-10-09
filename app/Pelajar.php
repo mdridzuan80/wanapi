@@ -33,5 +33,10 @@ class Pelajar extends Model
     {
         return $this->hasOne(User::class, 'nokp');
     }
+
+    public function markah()
+    {
+        return $this->hasMany(Markah::class, 'nokp');
+    }
     //
 }
