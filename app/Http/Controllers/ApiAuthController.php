@@ -65,10 +65,10 @@ class ApiAuthController extends Controller
     {
         $this->validate($request, [
             'username' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required',
         ]);
 
-        $user = User::find($request->username)->first();
+        $user = User::where('nokp',$request->username)->first();
 
         if($user && Hash::check($request->password, $user->password))
         {
