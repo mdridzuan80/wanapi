@@ -21,11 +21,11 @@ Route::get('permohonan/{nokp}', 'PermohonanController@semak');
 Route::get('jobmalaysia', 'PermohonanController@jobmalaysia');
 Route::get('laluankerjaya', 'PermohonanController@jobmalaysia');
 Route::get('senaraiilp/{negeri}', 'PermohonanController@senilp');
+Route::post('pelajar/mail', 'PelajarController@basic_email');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user/{nokp}', 'UserController@profile');
     Route::get('pelajar/{nokp}', 'PelajarController@index');
-    Route::post('pelajar/mail', 'PelajarController@basic_email');
     //Route::post('posts', 'PostController@store');
 });
 
