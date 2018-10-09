@@ -15,14 +15,12 @@ class ApiAuthController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'no_matrik' => 'required|unique:users',
             'password' => 'required|min:6',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'no_matrik' => $request->no_matrik,
             'password' => bcrypt($request->password),
             'api_token' => bcrypt($request->no_matrik . $request->password),
         ]);
