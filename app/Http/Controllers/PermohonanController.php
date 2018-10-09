@@ -14,7 +14,8 @@ class PermohonanController extends Controller
         
         $response = fractal()
             ->item($permohonan)
-            ->transformWith(new PermohonanTransformer);
+            ->transformWith(new PermohonanTransformer)
+            ->addMeta(['saveStatus' => 'pass']);
         
         if($permohonan->detail_permohonan()->terpilih()->first())
             $response->includeInstitusi()
