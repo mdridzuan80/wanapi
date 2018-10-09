@@ -24,4 +24,9 @@ class PermohonanController extends Controller
         return $response
             ->toArray();
     }
+
+    public function jobmalaysia()
+    {
+        return response()->json(['status' => 'BERJAYA']);
+    }
 }
