@@ -14,15 +14,19 @@ class ApiAuthController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'nokp' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'peranan' => 'required',
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'nokp' => $request->nokp,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'api_token' => bcrypt($request->no_matrik . $request->password),
+            'peranan_kod' => $request->peranan,
         ]);
         
 /*         $response = fractal()
