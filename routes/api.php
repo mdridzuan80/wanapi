@@ -22,6 +22,7 @@ Route::get('permohonan/{nokp}', 'PermohonanController@semak');
 Route::middleware('auth:api')->group(function () {
     Route::get('user/{nokp}', 'UserController@profile');
     Route::get('pelajar/{nokp}', 'PelajarController@index');
+    Route::post('pelajar/mail', 'PelajarController@basic_email');
     //Route::post('posts', 'PostController@store');
 });
 
