@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pelajar;
+use App\Institusi;
 use Illuminate\Http\Request;
 use App\Transformers\PelajarTransformer;
 use Illuminate\Support\Facades\Mail;
@@ -48,5 +49,11 @@ class PelajarController extends Controller
             $message->from('xyz@gmail.com', 'Virat Gandhi');
         });
         echo "Email Sent with attachment. Check your inbox.";
+    }
+
+    public function kursus($ilp)
+    {
+        $detail = Institusi::where('kod', $ilp)->with('kursus')->get();
+        return response()->json($detail);
     }
 }

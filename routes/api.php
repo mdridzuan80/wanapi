@@ -23,6 +23,7 @@ Route::get('laluankerjaya', 'PermohonanController@jobmalaysia');
 Route::get('senaraiilp/{negeri}', 'PermohonanController@senilp');
 Route::post('pelajar/mail', 'PelajarController@basic_email');
 Route::get('pelajar/{nokp}', 'PelajarController@index');
+Route::get('kursus/{ilp}', 'PelajarController@kursus');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user/{nokp}', 'UserController@profile');
